@@ -13,6 +13,7 @@
                     <th scope="col">#id</th>
                     <th scope="col"> Titolo</th>
                     <th scope="col">Messaggio</th>
+                    <th scope="col">category_id</th>
                     <th scope="col">Azioni</th>
                 </tr>
             </thead>
@@ -26,6 +27,17 @@
                             </a>
                         </td>
                         <td>{{ $post->body }}</td>
+
+                        {{-- STAMPA DEI DATI DELLA TABELLA MESSA IN RELAZIONE --}}
+
+                        <td>
+                            @if ($post->category)
+                            {{ $post->category['name'] }}
+                            @endif
+                        </td>
+
+                       {{-- ------------------------------------------------------------ --}}
+
                         <td class="">
                             <a class="btn btn-primary my-1" href="{{route('admin.posts.edit',$post->id)}}">
                                 edit
